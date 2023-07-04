@@ -77,6 +77,12 @@ export class AppComponent implements OnInit {
     console.log('doSearch', keyword);
 
     this.list = this.original_list
-      .filter(item => item.title.includes(keyword));
+      .filter(item => item.title.includes(keyword))
+      .map(item => {
+        return {
+          ...item,
+          title: item.title.replace(keyword, `<mark>${keyword}</mark>`)
+        };
+      });
   }
 }
