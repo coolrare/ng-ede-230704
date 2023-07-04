@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Article } from './shared/interfaces/Article';
+import { Article } from './shared/interfaces/Articles';
 import { DataService } from './data.service';
 
 @Component({
@@ -13,9 +13,11 @@ export class AppComponent implements OnInit {
   list: Article[] = [];
   constructor(private datasvc: DataService) { }
   ngOnInit(): void {
-    this.list = this.datasvc.getArticles();
+    this.datasvc.getArticles()
+      .subscribe(res => { this.list = res; });
   }
   doSearch(keyword: string) {
-    this.list = this.datasvc.searchArticles(keyword);
+    this.datasvc.searchArticles(keyword)
+      .subscribe(res => { this.list = res; });
   }
 }
