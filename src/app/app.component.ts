@@ -20,4 +20,9 @@ export class AppComponent implements OnInit {
   doSearch(keyword: string) {
     this.keyword = keyword;
   }
+
+  chooseTag(tag: string) {
+    this.datasvc.getArticles(tag)
+      .subscribe(res => { this.list = res; });
+  }
 }
