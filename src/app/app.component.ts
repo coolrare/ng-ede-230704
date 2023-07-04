@@ -76,6 +76,7 @@ export class AppComponent implements OnInit {
   doSearch(keyword: string) {
     console.log('doSearch', keyword);
 
-    this.list = this.original_list.filter(item => item.title.includes(keyword));
+    this.list = this.original_list
+      .filter(item => item.title.includes(keyword));
   }
 }

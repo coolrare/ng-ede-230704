@@ -21,6 +21,8 @@ export class HeaderComponent {
 
     this.fontSize += 0.1;
 
+    this.keyword = keyword;
+
     this.search.emit(keyword);
   }
 }

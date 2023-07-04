@@ -6,17 +6,16 @@
     <input
       class="form-control form-control-sm search-input"
       type="text"
-      placeholder="Keyword"
+      placeholder="請輸入查詢條件"
       #tKeyword
+      autofocus
       (keyup.enter)="doSearch(tKeyword.value)"
+      (keyup.escape)="doSearch('')"
       [(ngModel)]="keyword"
     />
     <button class="btn btn-sm btn-primary" (click)="doSearch(tKeyword.value, $event)">
       <i class="ion-search"></i>
     </button>
-
-    <span class="highlight" *ngIf="keyword === ''"> 請輸入查詢條件</span>
-
 
   </div>
 </nav>
