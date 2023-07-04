@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { TagsComponent } from './tags/tags.component';
+import { FilterArticlePipe } from './filter-article.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TagsComponent } from './tags/tags.component';
     HeaderComponent,
     FooterComponent,
     ArticlesComponent,
-    TagsComponent
+    TagsComponent,
+    FilterArticlePipe
   ],
   imports: [
     BrowserModule,

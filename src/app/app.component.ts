@@ -11,13 +11,13 @@ export class AppComponent implements OnInit {
   sitename = 'conduit';
   subtitle = 'A place to share your <u>knowledge</u>.';
   list: Article[] = [];
+  keyword = '';
   constructor(private datasvc: DataService) { }
   ngOnInit(): void {
     this.datasvc.getArticles()
       .subscribe(res => { this.list = res; });
   }
   doSearch(keyword: string) {
-    this.datasvc.searchArticles(keyword)
-      .subscribe(res => { this.list = res; });
+    this.keyword = keyword;
   }
 }

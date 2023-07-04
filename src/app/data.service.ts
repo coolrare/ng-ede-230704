@@ -15,21 +15,21 @@ export class DataService {
     return this.http.get<Articles>(url).pipe(map(res => res.articles));
   }
 
-  searchArticles(keyword: string): Observable<Article[]> {
-    if (keyword === '') {
-      return this.getArticles();
-    } else {
-      return this.getArticles()
-        .pipe(map(res => {
-          return res
-            .filter(item => item.title.includes(keyword))
-            .map(item => {
-              return {
-                ...item,
-                title: item.title.replace(keyword, `<mark>${keyword}</mark>`)
-              };
-            });
-        }));
-    }
-  }
+  // searchArticles(keyword: string): Observable<Article[]> {
+  //   if (keyword === '') {
+  //     return this.getArticles();
+  //   } else {
+  //     return this.getArticles()
+  //       .pipe(map(res => {
+  //         return res
+  //           .filter(item => item.title.includes(keyword))
+  //           .map(item => {
+  //             return {
+  //               ...item,
+  //               title: item.title.replace(keyword, `<mark>${keyword}</mark>`)
+  //             };
+  //           });
+  //       }));
+  //   }
+  // }
 }
