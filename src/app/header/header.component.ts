@@ -8,7 +8,15 @@ import { Component } from '@angular/core';
 export class HeaderComponent {
   keyword: string = '';
 
+  isHighlight = false;
+
+  fontSize = 1.5;
+
   doSearch(keyword: string, eventData?: MouseEvent) {
     console.log('Search button clicked', keyword, eventData);
+
+    this.isHighlight = !this.isHighlight;
+
+    this.fontSize += 0.1;
   }
 }
