@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  keyword: string = '';
+
   doSearch(keyword: string, eventData?: MouseEvent) {
     console.log('Search button clicked', keyword, eventData);
   }
