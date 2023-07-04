@@ -11,7 +11,21 @@
   <div class="container page">
     <div class="row">
       <div class="col-md-9">
-        <app-articles [list]="list | filterArticle:keyword"></app-articles>
+        <button *ngFor="let p of pages; let i=index" (click)="switchToPage(i)">{{i+1}}</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-9">
+
+        <div class="feed-toggle">
+          <ul class="nav nav-pills outline-active">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Article List ({{articlesCount}})</a>
+            </li>
+          </ul>
+        </div>
+
+        <app-articles [list]="articles | filterArticle:keyword"></app-articles>
       </div>
 
       <div class="col-md-3">
