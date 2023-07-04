@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -12,11 +12,15 @@ export class HeaderComponent {
 
   fontSize = 1.5;
 
+  @Output() search = new EventEmitter<string>();
+
   doSearch(keyword: string, eventData?: MouseEvent) {
     console.log('Search button clicked', keyword, eventData);
 
     this.isHighlight = !this.isHighlight;
 
     this.fontSize += 0.1;
+
+    this.search.emit(keyword);
   }
 }

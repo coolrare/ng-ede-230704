@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Article } from './shared/interfaces/Article';
 
 @Component({
@@ -6,10 +6,10 @@ import { Article } from './shared/interfaces/Article';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   sitename = 'conduit';
   subtitle = 'A place to share your <u>knowledge</u>.';
-  list: Article[] = [
+  original_list: Article[] = [
     {
       title:
         'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
@@ -66,4 +66,16 @@ export class AppComponent {
       favoritesCount: 5,
     },
   ];
+
+  list: Article[] = [];
+
+  ngOnInit(): void {
+    this.list = this.original_list;
+  }
+
+  doSearch(keyword: string) {
+    console.log('doSearch', keyword);
+
+    this.list = this.original_list.filter(item => item.title.includes(keyword));
+  }
 }
