@@ -16,16 +16,20 @@ export class DataService {
   }
 
   searchArticles(keyword: string): Observable<Article[]> {
-    return this.getArticles()
-      .pipe(map(res => {
-        return res
-          .filter(item => item.title.includes(keyword))
-          .map(item => {
-            return {
-              ...item,
-              title: item.title.replace(keyword, `<mark>${keyword}</mark>`)
-            };
-          });
-      }));
+    if (keyword === '') {
+      return this.getArticles();
+    } else {
+      return this.getArticles()
+        .pipe(map(res => {
+          return res
+            .filter(item => item.title.includes(keyword))
+            .map(item => {
+              return {
+                ...item,
+                title: item.title.replace(keyword, `<mark>${keyword}</mark>`)
+              };
+            });
+        }));
+    }
   }
 }
